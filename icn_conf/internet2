@@ -1,0 +1,16 @@
+Host umich
+    User icn
+    Hostname 198.111.224.199
+
+Host nwn
+    User icn
+    Hostname 165.124.33.146
+
+Host clemson
+    User icn
+#Hostname 130.127.217.246
+    Hostname 130.127.217.16
+
+Host gwu
+    User icn
+    Hostname 2620:118:5007:11a4:72b6:12a2:0:3

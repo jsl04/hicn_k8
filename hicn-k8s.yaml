@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hicn
+  labels:
+    app: hicn
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hicn
+  template:
+    metadata:
+      labels:
+        app: hicn
+    spec:
+      containers:               
+      - name: hicn
+        image: cbmckni/hicn-client
+        ports:
+            - containerPort: 33567
+        command: ["/bin/bash"]
+        args: ["-c", "sleep infinity" ]
+        securityContext:
+          privileged: true
+          capabilities:
+            add: ["NET_ADMIN"]
+        resources:
+          requests:
+            cpu: 1
+            memory: 3Gi
+          limits:
+            cpu: 1
+            memory: 3Gi
+        volumeMounts:
+        - name: task-pv-volume
+          mountPath: /workspace
+      restartPolicy: Always
+      volumes:
+        - name: task-pv-volume
+          persistentVolumeClaim:
+            claimName: task-pv-claim # Enter valid PVC

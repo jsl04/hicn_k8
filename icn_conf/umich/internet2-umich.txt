@@ -1,0 +1,11 @@
+set int state TenGigabitEthernet3/0/1 up
+create sub TenGigabitEthernet3/0/1 3132
+set int state TenGigabitEthernet3/0/1.3132 up
+set int ip address TenGigabitEthernet3/0/1.3132 10.10.3.10/24
+set ip6 address TenGigabitEthernet3/0/1.3132 2001::10:10:3:10/16
+hicn punting add prefix b001::/16 intfc TenGigabitEthernet3/0/1.3132 
+create sub TenGigabitEthernet3/0/1 3131
+set int state TenGigabitEthernet3/0/1.3131 up
+set int ip address TenGigabitEthernet3/0/1.3131 10.10.2.10/24
+set ip6 address TenGigabitEthernet3/0/1.3131 2003::10:10:7:20/16
+hicn punting add prefix b001::/16 intfc TenGigabitEthernet3/0/1.3131 
