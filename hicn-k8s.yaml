@@ -28,10 +28,10 @@ spec:
         resources:
           requests:
             cpu: 1
-            memory: 3Gi
+            memory: 1Gi
           limits:
             cpu: 1
-            memory: 3Gi
+            memory: 1Gi
         volumeMounts:
         - name: task-pv-volume
           mountPath: /workspace
